@@ -1,0 +1,40 @@
+import styled from 'styled-components';
+import { CellStatus } from '../types';
+
+type Props = {
+  status: CellStatus;
+};
+
+export const Cell = (props: Props) => {
+  const { status } = props;
+  return (
+    <>
+      <SCell>
+        {status === CellStatus.White ? <SWhitePiece /> : status === CellStatus.Black ? <SBlackPiece /> : null}
+      </SCell>
+    </>
+  );
+};
+
+const SCell = styled.div`
+  width: 50px;
+  height: 50px;
+  background-color: #008000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SBlackPiece = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: black;
+`;
+
+const SWhitePiece = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: white;
+`;
