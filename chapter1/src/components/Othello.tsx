@@ -1,7 +1,10 @@
+import { Cell } from './Cell';
+import { CellStatus } from '../types';
+
 export const Othello = () => {
   return (
     <>
-      <h3>Hello</h3>
+      <Cell status={CellStatus.White} />
     </>
   );
 };
