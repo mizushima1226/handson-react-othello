@@ -12,6 +12,13 @@ chapter1/build
 chapter1/yarn-debug.log*
 chapter1/yarn-error.log*
 
+# chapter2
+chapter2/.vscode
+chapter2/node_modules
+chapter2/build
+chapter2/yarn-debug.log*
+chapter2/yarn-error.log*
+
 # origin
 origin/.vscode
 origin/node_modules
