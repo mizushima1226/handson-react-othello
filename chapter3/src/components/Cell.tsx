@@ -3,13 +3,14 @@ import { CellStatus } from '../types';
 
 type Props = {
   status: CellStatus;
+  onClick: () => void;
 };
 
 export const Cell = (props: Props) => {
-  const { status } = props;
+  const { status, onClick } = props;
   return (
     <>
-      <SCell>
+      <SCell onClick={onClick}>
         {status === CellStatus.White ? <SWhitePiece /> : status === CellStatus.Black ? <SBlackPiece /> : null}
       </SCell>
     </>

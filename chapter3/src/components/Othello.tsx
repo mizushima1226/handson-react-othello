@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Cell } from './Cell';
 import { CellStatus } from '../types';
+import { reverce } from '../utils/othelloUtil';
 
 const getInitialRows = (): Array<Array<CellStatus>> => {
   // １次元配列を生成
@@ -21,16 +23,26 @@ const getInitialRows = (): Array<Array<CellStatus>> => {
 };
 
 export const Othello = () => {
-  const rows = getInitialRows();
+  const [isBlackTurn, setIsBlackTurn] = useState(true);
+  const [rows, setRows] = useState(getInitialRows());
+
+  const onClickCell = () => {
+    const result = reverce();
+    if (result === null) return;
+    setRows(result);
+    setIsBlackTurn(!isBlackTurn);
+  };
+
   return (
     <>
       <SContainer>
         <div>
+          <div>{isBlackTurn ? '黒の番' : '白の番'}</div>
           {rows.map((row) => {
             return (
               <SRow>
                 {row.map((status) => {
-                  return <Cell status={status} />;
+                  return <Cell status={status} onClick={onClickCell} />;
                 })}
               </SRow>
             );
